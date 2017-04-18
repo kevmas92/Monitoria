@@ -1,0 +1,880 @@
+% Created 2017-03-24 Sex 10:25
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{amssymb,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{fullpage}
+\usepackage{mathpartir}
+\usepackage{proof}
+\usepackage[all]{xy}
+
+\newcommand{\toe}{(\to_e)}
+\newcommand{\toi}{(\to_i)}
+\newcommand{\landi}{(\land_i)}
+\newcommand{\lande}{(\land_e)}
+\newcommand{\landel}{(\land_{e_1})}
+\newcommand{\lander}{(\land_{e_2})}
+\newcommand{\lori}{(\lor_i)}
+\newcommand{\lorl}{(\lor_{i_1})}
+\newcommand{\lorr}{(\lor_{i_2})}
+\newcommand{\lore}[2]{(\lor_e)\;{#1,#2}}
+\newcommand{\nege}{(\neg_e)}
+\newcommand{\negi}{(\neg_i)}
+\newcommand{\lem}{\rm{(LEM)}}
+\newcommand{\pbc}{(\rm{PBC})}
+\newcommand{\bote}{(\bot_e)}
+\newcommand{\alle}{(\forall_e)}
+\newcommand{\alli}{(\forall_i)}
+\newcommand{\exie}[1]{(\exists_e)\;{#1}}
+\newcommand{\exii}{(\exists_i)}
+\newcommand{\true}{T}
+\newcommand{\false}{F}
+\newcommand{\fv}[1]{{\sc FV}(#1)}
+\renewcommand\refname{Bibliografia}
+
+
+\usepackage{fancyhdr} %For headers and footers
+\usepackage{fancyhdr} %For headers and footers
+\usepackage{color}
+\usepackage{enumitem}
+
+\newcommand{\lista}[1]{
+\noindent
+\fbox{
+\begin{minipage}{6.3in}
+  Universidade de Brasília - Instituto de Ciências Exatas \\ Departamento de Ciência da Computação \\
+  {\bf CIC 113450 - Fundamentos Teóricos da Computação - Turma C \hfill
+    (2017/1)}\\[.1cm]
+  {\bf Professor:} Flávio L. C. de Moura \\[.1cm]
+  {\bf Monitor:} Kevin Masinda Mahema ({\tt kevinmasinda16@gmail.com})
+  \begin{center}
+    \today \\[0.5cm]
+    {\Large Lista: #1} \\[3mm]
+  \end{center}
+\end{minipage}
+}
+
+\bigskip
+
+\bigskip
+}
+
+
+% Switch answer to = 0 in order to generate the solution
+\newcommand{\answer}[2]{\ifnum#1= 0  {\color{blue} #2}\else \fi}
+
+
+\author{Prof. Flávio L. C. de Moura\thanks{flaviomoura@unb.br}}
+\date{}
+\title{113450 - Fundamentos Teóricos da Computação - Turma C}
+\hypersetup{
+ pdfauthor={Flávio L. C. de Moura},
+ pdftitle={113450 - Fundamentos Teóricos da Computação (Turma C)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.50.1 (Org mode 9.0.5)}, 
+ pdflang={English}}
+
+\begin{document}
+\lista{Lista de Exercícios - Noções de lógica \\ \answer{0}{(Gabarito)}}
+
+\begin{enumerate}
+\item Em uma ilha existem apenas dois tipos de moradores: os honestos
+  e os mentirosos. Os honestos sempre falam a verdade, enquanto que os
+  mentirosos sempre mentem. Suponha que você encontra dois moradores
+  $A$ e $B$ da ilha. Determine, se possível, o que são $A$ e $B$ se
+  $A$ diz "eu sou um mentiroso ou $B$ é honesto", e $B$ não diz nada.
+
+  \answer{0}{ {\bf Solução.}
+    
+    Temos 2 casos a considerar:
+    \begin{enumerate}
+    \item Suponha que $A$ seja honesto, e portanto sempre fale a
+      verdade. Como $A$ não pode ser simultaneamente honesto e
+      mentiroso, a conclusão a partir do que foi dito é que $B$ é
+      honesto.
+    \item Se $A$ for mentiroso então o que ele disse é falso, o que
+      nos leva a uma contradição, e portanto este caso não é possível.
+    \end{enumerate}
+    Podemos então concluir que os moradores $A$ e $B$ são honestos.  }
+
+% \item Interdefinibilidade de conectivos: Considere os conectivos
+%   $\neg, \land, \lor$ e $\to$. Em aula, vimos que a conjunção
+%   ($\land$) e a implicação ($\to$) podem ser escritos em função da
+%   negação ($\neg$) e disjunção ($\lor$). Esboce um quadro geral da
+%   interdefinibilidades destes quatro conectivos. Em particular, dados
+%   dois destes conectivos determine se estes podem ser escritos em
+%   função dos outros dois. Justifique as respostas.
+  
+%   \answer{0}{ {\bf Solução.}
+    
+%   }
+  
+\item As equivalências a seguir foram justificadas em sala, de forma
+  que podem ser assumidas como válidas:
+  
+  \begin{enumerate}[label*=\arabic*.]
+  \item\label{eq1}
+    $\varphi \to \psi \equiv (\neg{} \varphi) \lor \psi$
+    
+  \item\label{eq2} $\varphi \land\top \equiv \varphi$
+    
+  \item\label{eq3} $\varphi \lor \bot \equiv \varphi$
+    
+  \item\label{eq4} $\varphi \lor \top \equiv \top$
+    
+  \item\label{eq5} $\varphi \land \bot \equiv \bot$
+    
+  \item\label{eq6} $\varphi \lor (\neg{} \varphi) \equiv \top$
+    
+  \item\label{eq7} $\varphi \land (\neg{} \varphi) \equiv \bot$
+    
+  \item\label{eq8} $\varphi \land \varphi \equiv \varphi$
+    
+  \item\label{eq9} $\varphi \lor \varphi \equiv \varphi$
+    
+  \item\label{eq10} $\neg{} \neg{} \varphi \equiv \varphi$
+    
+  \item\label{eq11} $\varphi \lor \psi \equiv \psi \lor \varphi$
+    
+  \item\label{eq12} $\varphi \land \psi \equiv \psi \land \varphi$
+    
+  \item\label{eq13} $\varphi \lor (\varphi \land \psi) \equiv \varphi$
+    
+  \item\label{eq14} $\varphi \land (\varphi \lor \psi) \equiv \varphi$
+    
+  \item\label{eq15} $\varphi \lor (\psi \lor \gamma) \equiv (\varphi \lor \psi)  \lor \gamma$
+    
+  \item\label{eq16} $\varphi \land (\psi \land \gamma) \equiv (\varphi \land \psi)  \land \gamma$
+    
+  \item\label{eq17} $\varphi \land (\psi \lor \gamma) \equiv (\varphi \land \psi) \lor (\varphi \land \gamma)$
+    
+  \item\label{eq18} $\varphi \lor (\psi \land \gamma) \equiv (\varphi \lor \psi) \land (\varphi \lor \gamma)$
+    
+  \item\label{eq19} $\neg{}(\varphi \lor \psi) \equiv (\neg{} \varphi) \land (\neg{} \psi)$
+    
+  \item\label{eq20} $\neg{}(\varphi \land \psi) \equiv (\neg{} \varphi) \lor (\neg{} \psi)$
+  \end{enumerate}
+  
+  Utilizando as equivalências acima, prove que:
+  
+  
+  \begin{enumerate}
+  \item $p \to q \equiv (\neg{} q) \to (\neg{} p)$
+    
+    \answer{0}{
+      {\bf Solução.}
+      $p \to q \stackrel{\ref{eq1}}{\equiv} (\neg p) \lor q$
+    }
+    
+  \item $\neg{}(p \lor ((\neg{} p) \land q)) \equiv (\neg{} p)\land (\neg{} q)$ \newline
+    
+    \answer{0}{ {\bf Solução.}
+      
+      $\neg{}(p \lor (\neg{} p) \land q) \equiv (\neg{} p) \land
+      (\neg{} q)$ \newline
+      $\neg{}(p \lor \neg{} p) \land (p \lor q)) \equiv (\neg{}
+      p)\land (\neg{} q)$ \newline
+      $\neg{}(\top \land(p \lor q)) \equiv (\neg{} p) \land (\neg{}
+      q)$ \newline
+      $\neg{}(p \lor q) \equiv (\neg{} p) \land (\neg{} q)$ \newline
+      $(\neg{}p) \land (\neg{}q) \equiv (\neg{} p) \land (\neg{} q)$
+      \newline }
+\item $(p \land q) \to (p \lor q) \equiv \top$ \newline
+	\answer{0}{
+    {\bf Solução.}\newline
+    $\neg{}(p \land q) \lor (p \lor q)\equiv \top $ \newline
+    $(\neg{}p \lor \neg{}q) \lor (p \lor q) \equiv \top$ \newline
+    $(\neg{}p \lor \neg{}q \lor p \lor q) \equiv \top$ \newline
+    $((\neg{}p \lor p) \lor (\neg{}q \lor q)) \equiv \top$ \newline
+    $((\neg{}p \lor p) \lor \top) \equiv \top$ \newline
+    $ \top \equiv \top$
+    }
+	
+\item $p \to (q \to r) \equiv (p \land q) \to r$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $p \to (q \to r) \equiv (p \land q) \to r$ \newline
+    $\neg{}p \lor (q \to r) \equiv (p \land q) \to r$ \newline
+    $\neg{}p \lor (\neg{}q \lor r) \equiv (p \land q) \to r$ \newline
+    $ \neg{}p \lor \neg{}q \lor r \equiv (p \land q) \to r$\newline
+    $\neg{}(p \land q) \lor r \equiv (p \land q) \to r$ \newline
+    $(p \land q) \to r \equiv (p \land q) \to r$
+    }
+\item $((p \to q) \to p) \to p \equiv \top$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+	$((p \to q) \to p) \to p \equiv \top$ \newline
+	$(\neg{}(p \to q) \to p) \lor p \equiv \top$ \newline
+	$(\neg{}\neg{}(p \to q) \lor p) \lor p \equiv \top$ \newline
+	$((p \to q) \lor p ) \lor p \equiv \top$ \newline
+	$\neg{}p \lor q \lor p \lor p \equiv \top$ \newline
+	$q \lor \neg{}p \lor p \lor p \equiv \top$ \newline
+	$q \lor p \lor (\neg{}p \lor p) \equiv \top$\newline
+	$q \lor p \lor \top \equiv \top$ \newline
+	$q \lor (p \lor \top) \equiv \top $\newline
+	$q \lor \top \equiv \top$ \newline
+	$\top \equiv \top$
+    }
+    
+\end{enumerate}
+
+\item Considere o seguinte conjunto de regras:
+
+\[\begin{array}{|c@{\hspace{1cm}}c|}
+ \hline
+ \mbox{introdução} & \mbox{eliminação} \\
+ \hline 
+ &\\
+ \infer[\landi]{\varphi\wedge\psi}{\varphi\;\;\psi} & 
+ \infer[\landel]{\varphi}{\varphi\wedge\psi} \;\;\;\;\;\;\;\;\;\;\;\; \infer[\lander]{\psi}{\varphi\wedge\psi}\\[5mm]
+ \infer[\lorl]{\varphi\vee\psi}{\varphi} \;\;\;\;\;\;\;\;\;\;\;\; \infer[\lorr]{\varphi\vee\psi}{\psi} &
+ \infer[\lore{u}{v}]{\mbox{}\hspace{2.5cm}\chi\hspace{2.5cm}\mbox{}}{\deduce{\varphi\vee\psi}{}\hspace{10mm}\deduce{\chi}{\deduce{\vdots}{[\varphi]^u}}\hspace{10mm}
+   \deduce{\chi}{\deduce{\vdots}{[\psi]^v}}}\\[5mm]
+ \infer[\toi{u}]{\varphi\rightarrow\psi}{\deduce{\psi}{\deduce{\vdots}{[\varphi]^u}}} & 
+ \infer[\toe]{\psi}{\varphi\;\;\;\; \varphi \rightarrow \psi} \\[5mm]
+ \infer[\negi{u}]{\neg\varphi}{\deduce{\bot}{\deduce{\vdots}{[\varphi]^u}}} & 
+ \infer[\nege]{\bot}{\varphi\;\;\;\; \neg\varphi} \\[5mm]
+ & \infer[\pbc{u}]{\varphi}{\mbox{\begin{tabular}{c}$[\lnot\varphi]^u$ \\ $\vdots$ \\ $\bot$
+                                  \end{tabular}}}  \\[5mm]
+    \infer[\alli]{\forall_x \varphi}{\varphi[x/x_0]} & \infer[\alle]{\varphi[x/t]}{\forall_x \varphi} \\
+    \mbox{ onde } x_0 \mbox{ não ocorre livre} & \\ \mbox{ em hipóteses não descartadas.} & \\
+    \mbox{e nem na prova de } \varphi[x/x_0] & \\[5mm]
+    \infer[\exii]{\exists_x \varphi}{\varphi[x/t]} &
+                                                     \infer[\exie{u}]{\mbox{}\hspace{2.5cm}\chi\hspace{2.5cm}\mbox{}}{\deduce{\exists_x\varphi}{}
+                                                     \hspace{10mm}\deduce{\chi}{\deduce{\vdots}{[\varphi[x/x_0]]^u}}}  \\[5mm]
+                   & \mbox{ onde } x_0 \mbox{ é uma variável nova que}
+                     \\ & \mbox{não ocorre em } \chi. \\  \hline
+ \end{array}\]
+
+
+Sejam $A,B,C$ fórmulas da lógica proposicional. Prove os seguintes sequentes:
+
+\begin{enumerate}
+\item $A \lor (B \lor C) \vdash (A \lor B) \lor C$
+  
+  \answer{0}{ {\bf Solução.}
+    {\small
+    \begin{mathpar}
+      \inferrule*[Right={$\lore{1}{2}$}]{A \lor (B \lor C) \\
+        \inferrule*[Right={$\lori$}]{
+          \inferrule*[Right={$\lori$}]{[A]^1}
+          {A \lor B}}
+        {(A \lor B) \lor C} \\
+        \inferrule*[Right={$\lore{3}{4}$}]{[B \lor C]^2 \\
+          \inferrule*[Right={$\lori$}]{
+            \inferrule*[Right={$\lori$}]{[B]^3}
+            {A \lor B}}
+          {(A \lor B) \lor C} \\
+          \inferrule*[Right={$\lori$}]{[C]^4}{(A \lor B) \lor C}}
+        {(A \lor B) \lor C}}{(A \lor B) \lor C}
+    \end{mathpar} }
+  }
+
+\item $(A \lor B) \lor C \vdash A \lor (B \lor C)$ \newline
+  \answer{0}{ {\bf Solução.}
+
+        {\small
+    \begin{mathpar}
+      \inferrule*[Right={$\lore{1}{2}$}]{(A \lor B) \lor C \\
+        \inferrule*[Right={$\lore{3}{4}$}]{[A \lor B]^1 \\
+            \inferrule*[Right={$\lori$}]{[A]^3}
+          {A \lor (B \lor C)} \\
+          \inferrule*[Right={$\lori$}]{[B]^4}{
+            \inferrule*[Right={$\lori$}]{B \lor C}{A \lor (B \lor C)}}}
+        {A \lor (B \lor C)} \\ \\
+                \inferrule*[Right={$\lori$}]{
+          \inferrule*[Right={$\lori$}]{[C]^2}
+          {B \lor C}}
+        {A \lor (B \lor C)}
+      }{A \lor (B \lor C)}
+    \end{mathpar} }
+  }
+  
+\item $A \land (B \land C) \vdash (A \land B) \land C$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{(A \land B) \land C}{\infer{A \land B}{\infer{A}{A \land (B \land C)} \hspace {1.5cm}\infer{B}{\infer{B \land C}{A \land (B \land C)}}} \hspace{2.5cm} \infer{C}{\infer{B \land C}{A \land (B \land C)}}}$ \newline
+    
+    }
+\item $(A \land B) \land C \vdash A \land (B \land C)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{A \land (B \land C)}{\infer{A}{\infer{A \land B}{(A \land B) \land C}} \hspace{1.5cm} \infer{B \land C}{\infer{B}{\infer{A \land B}{(A \land B) \land C}} \hspace{0.5cm} \infer{C}{(A \land B) \land C} }}$ \newline
+    }
+\item $A \vdash \neg\neg A$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    	$ \infer{\neg{}\neg{}A}{\infer{\bot}{A \hspace{1cm}[\neg{}A]^1}}$ \newline
+    }
+\item $A \to B, \neg B \vdash \neg A$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    	$\infer{\neg{}A}{\infer{\bot}{\infer{B}{[A]^1 \hspace{15mm} A \to B}\neg{}B}}$ \newline
+    }
+\item $A \to B \vdash (\neg B) \to (\neg A)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\neg{}B \to \neg{}A}{\infer{\neg{}A}{\infer{\bot}{\infer{B \hspace{5mm} [\neg{}B]^2}{[A]^1 \hspace{5mm} A \to B}}}}$
+    }
+\item $\neg(A \lor B) \vdash (\neg A) \land (\neg B)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\neg{}A \land \neg{}B}{\infer{\neg{}A}{\infer{\bot}{\neg{}(A \lor B) \hspace{3mm} \infer{A \lor B}{[A]^1}}} \hspace{10mm} \infer{\neg{}B}{\infer{\bot}{\neg{}(A \lor B) \hspace{3mm} \infer{A \lor B}{[B]^2}}}}$ \newline
+    }
+\item $(\neg A) \land (\neg B) \vdash \neg(A \lor B)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\neg{}(A \lor B)}{\infer{\bot}{\infer{\bot}{[A]^2 \hspace{3mm} \infer{\neg{}A}{\infer{\neg{}A \land \neg{}B}{\hspace{5mm} [A \lor B]^1}}} \hspace{10mm} \infer{\bot}{[B]^3 \hspace{3mm} \infer{\neg{}B}{\neg{}A \land \neg{}B}}}}$
+    }
+\item $\neg(A \land B) \vdash (\neg A) \lor (\neg B)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\neg{}A \lor \neg{}B}{\infer{B \land \neg{}B}{LTE} \hspace{9mm}\infer{\neg{}A \lor \neg{}B}{\infer{\neg{}A}{\infer{\bot}{\neg{}(A \land B) \hspace{3mm} (\infer{A \land B}{\infer{A \land B}{[A]^1 \hspace{3mm} [B]^2}}}}} \hspace{9mm} \infer{\neg{}A \lor \neg{}B}{\infer{\neg{}B}{\infer{\bot}{[B]^2 \hspace{3mm} [\neg{}B]^3}}}}$
+    }
+\item $(\neg A) \lor (\neg B) \vdash \neg(A \land B)$
+\item $\neg\neg A \vdash A$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{A}{\infer{\bot}{\neg{}\neg{}A \hspace{5mm} [\neg{}A]^1}}$ \newline
+    }
+\item $\bot \vdash A$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{A}{\infer{\bot}{\infer{\bot \land \neg{}A}{\bot \hspace{3mm} [\neg{}A]^1}}}$ \newline
+    }
+\item $\vdash ((A \to B) \to A) \to A$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{A \to (A \to ( B \to A) }{\infer{A \to ( B \to A)}{\infer{B \to A}{\infer{B}{[B \to A]^1 \hspace{3mm} [A]^2} \hspace{5mm}\infer{A}{[B \to A]^1 \hspace{3mm} [B]^3}}}}$
+    }
+\item $\vdash A \lor (\neg A)$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{A \lor \neg{}A}{\infer{\bot}{\neg(A \lor \neg{}A)^2 \hspace{7mm} \infer{A \lor \neg{}A}{\infer{\neg{}A}{\infer{\bot}{\neg{}(A \lor \neg{}A)^2 \hspace{3mm} \infer{A \lor \neg{}A}{[A]^1}}}}}}$ \newline
+    }
+\end{enumerate}
+
+
+\item Prove as seguintes equivalências:
+\begin{enumerate}
+\item $\exists x (p(x) \lor q(x)) \equiv (\exists x p(x)) \lor
+  (\exists x q(x))$
+\item $\forall x (p(x) \land q(x)) \equiv (\forall x p(x)) \land
+  (\forall x q(x))$ \newline
+  	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\forall x ( q(x) \land p(x))}{\infer{q(x_{0}) \land p (x_{0})}{\infer{q(x_{0})}{\infer{p(x_{0}) \land q(x_{0})}{\forall x ( p(x) \land q(x))} \hspace{6mm} \infer{p(x_{0})}{\infer{p(x_{0}) \land q (x_{0})}{\forall x (p(x)\land q(x))}}}}}$
+    }
+\item $\exists x p(x) \equiv \neg (\forall x (\neg p(x))$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\neg{} \forall x \neg p(x)}{\infer{\bot}{\exists x p(x) \hspace{10mm} \infer{\bot}{[p(x_{0})]^2 \hspace{3mm} \infer{\neg{} p(x_{0})}{[\forall x \neg{} p(x)]^1}}}}$
+   	}
+\item $\forall x p(x) \equiv \neg (\exists x (\neg p(x))$ \newline
+	\answer{0}{
+    {\bf Solução.} \newline
+    $\infer{\forall x p(x)}{\infer{p(x_{0})}{\infer{\bot}{\neg{}(\exists x \neg{} p(x) \hspace{7mm} \infer{\exists x \neg{} p (x)}{[\neg p(x_{0})]^1}}}}$
+    }
+\end{enumerate}
+
+\item Utilize indução matemática para provas as seguintes propriedades:
+\begin{enumerate}
+\item $\forall n \in \mathbb{N}, n \geq 1$ 
+  $$\displaystyle\sum_{i=1}^{n}2i-1 = n^2$$
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    
+    Base indutiva: $1 = 1^2$, Ok.\\
+    Passo indutivo: Nossa hipótese de indução é que:
+    $$\displaystyle\sum_{i=1}^{n}2i-1 = n^2$$
+    e queremos mostrar que
+    $$\displaystyle\sum_{i=1}^{n+1}2i-1 = (n+1)^2$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        \sum_{i=1}^{n+1}2i-1 &=\sum_{i=1}^n2i-1  + 2(n+1)-1\\
+        &\stackrel{h.i.}{=} n^2 + 2n + 1\\
+        &= (n+1)^2
+      \end{split}
+    \end{align*} 
+  }
+
+\item $\forall n \in \mathbb{N}, n \geq 1$ 
+  $$1^2 + 2^2 + ... + n^2 = \frac{n(n+1)(2n+1)}{6}$$
+  
+  \answer{0}{ 
+    {\bf Solução} \\
+    Base indutiva: $ 1^2 = \frac{1.2.3}{6}$, Ok. \\
+    Passo indutivo: Nossa hipótese de indução é que:
+    $$\displaystyle\sum_{i=1}^{n}i^2 = \frac{n(n+1)(2n+1)}{6}$$
+    E queremos mostrar que:
+    $$\displaystyle\sum_{i=1}^{n+1}i^2 = \frac{(n+1)(n+2)(2n+3)}{6}$$
+    Logo,
+    \[
+      \begin{array}{ll}
+        \displaystyle\sum_{i=1}^{n+1}i^2
+        & = \displaystyle\sum_{i=1}^{n}i^2 + (n+1)^2 \\ 
+        & \stackrel{h.i.}{=} \frac{n(n+1)(2n+1)}{6} + (n+1)^2 \\
+        & = \frac{n(n+1)(2n+1)}{6} + \frac{6(n+1)^2}{6} \\
+        & = \frac{n(n+1)(2n+1)}{6} + \frac{6n^2 +12n + 6}{6} \\
+        & = \frac{2n^3 + 3n^2 + 6n^2 + n + 12n + 6}{6} \\
+        & = \frac{(n+1)(n+2)(2n+3)}{6}
+      \end{array}
+    \]	
+  }
+  
+\item $\forall n \in \mathbb{N}, n \geq 5$
+  $$2n+1 < 2^n$$ \label{itemc}
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Base indutiva: $2.5 + 1 < 2^5$ 
+    
+    Passo indutivo: Nossa hipótese de indução é:
+    $$2n + 1 < 2^n$$
+    e queremos provar que:
+    $$2(n+1)+1 < 2^{n+1}$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        2n + 1  + 2 &< 2^n + 2 < 2^n + 2^n = 2^{n+1}
+      \end{split}
+    \end{align*}
+  }
+\item $\forall n \in \mathbb{N}, n \geq 5$ 
+  $$n^2 < 2^n$$
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Base indutiva : $5^2 < 2^5$\\|
+    Passo indutivo: Nossa hipótese de indução é:
+    $$ n^2 < 2^n$$
+    e queremos provar que:
+    $$ (n+1)^2 < 2^{n+1}$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        n^2 + 2n + 1 &< 2^n + 2n + 1\\
+        (n+1)^2      < 2^  + 2n + 1 &\stackrel{(\ref{itemc})}{<} 2^n + 2^n = 2^{n+1}
+      \end{split}
+    \end{align*}
+  }
+  \end{enumerate}
+  
+\item Prove que todo número natural maior do que 1 possui um fator primo.
+  
+  \answer{0}{ 
+    {\bf Solução} \\
+    A prova é feita por indução (forte) em $n$. Consideraremos 2 casos:
+    \begin{enumerate}
+    \item  Se $n$ é primo, a resposta é trivial já que $n$ pode ser reescrito como $ n . 1 $, e portanto $n$ é o seu próprio fator primo. 
+    \item Se $n$ não é primo, por definição, existem números
+      naturais $1 < n_1, n_2 < n$ tais que $n_1.n_2 = n$.
+      Aplicando a hipótese de indução para $n_i (i \in \{ 1,2 \} )$
+      que é estritamente menor que $n$, concluímos que $n_i$
+      possui um fator primo, digamos $p$. Logo $p$ é também um
+      fator primo de $n$.
+    \end{enumerate}
+  }
+  
+  % Corrigir
+  % \item Todo número natural positivo pode ser escrito como soma de potências distintas de 2.\\	
+  % \answer{0}{\\ 
+  % {\bf Solução} \\
+  % Digamos que $n = 1 + k$. nesse caso, $n > k$.\\
+  
+  % Aplicando o princípio da indução forte, podemos assumir que a propriedade vale para k. Levando em consideração que $1 = 2^0$, assim, teríamos duas possibilidades: k é par ou k é ímpar, isto é, se  $2^0$ já foi utilizado como potência. Caso seja par, a prova está completa. Caso seja ímpar, é necessário rearranjar as potências utilizando a igualdade $ 2^{n+1} = 2^n + 2^n$ até que não hajam potências repetidas.
+  % }
+\item A sequência de Fibonacci pode ser definida por
+  
+  $f_0 = 1$
+  $f_1 = 1$
+  $f_{n+1} = f_n + f_{n-1}$
+  
+  Mostre que para $k\geq 1$, temos $f_k \geq (3/2)^{k-2}$.
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    A prova é feita usando indução forte:
+    Note que para $k=0,1$, $f_k
+    = 1 \geq (\frac{3}{2})^{-1}$.
+    Assumimos ent\~ao a propriedade para todo
+    $f_n$ para $n<k$, com $k\geq 1$, e
+    provamos para $k+1$:
+    \begin{align*}
+      \begin{split}
+        f_{k+1} = f_k + f_{k-1} &\stackrel{h.i.}{\ge} \left(\frac{3}{2}\right)^{k-2} + \left(\frac{3}{2}\right)^{k-3}\\
+        &=(\frac{3}{2} + 1) \left(\frac{3}{2}\right)^{k-3} \\
+        &=\frac{5}{2} \left(\frac{3}{2}\right)^{k-3}\\
+        &> \left(\frac{3}{2}\right)^{2} \left(\frac{3}{2}\right)^{k-3}\\
+        &= \left(\frac{3}{2}\right)^{k-1}
+      \end{split}
+    \end{align*}
+  }
+ 
+\item Considere novamente a
+  sequ\^encia de Fibonacci. 
+  % Defina a sequência $a_1, a_2, \ldots$ de números inteiros
+  % recursivamente como a seguir:
+  % \begin{enumerate}
+  % \item $a_1=1$
+  % \item $a_2=2$
+  % \item $a_n = a_{n-1} + a_{n-2}, \forall n>2$.
+  
+  Use indução forte para provar que $f_n \leq (\frac{5}{3})^n,
+  \forall n\geq 0$.
+  
+  % \end{enumerate}
+  \answer{0}{ 
+    {\bf Solução} \\
+    Note que para $k=0,1$, $f_k=1\leq
+    (\frac{5}{3})^0\leq  (\frac{5}{3})^1$. 
+    Assumindo a propriedade para todo $f_k$ com  $k < n$,
+    para $n>1$, temos:
+    \begin{align*}
+      \begin{split}
+        f_n &= f_{n-1} + f_{n-2}\\
+        &\stackrel{h.i.}{\le} \left(\frac{5}{3}\right)^{n-1} + \left(\frac{5}{3}\right)^{n-2}\\
+        &= \frac{15}{25}   \left(\frac{5}{3}\right)^n + \frac{9}{25}   \left(\frac{5}{3}\right)^n\\
+        &= \frac{24}{25}   \left(\frac{5}{3}\right)^n\\
+        &< \left(\frac{5}{3}\right)^n
+      \end{split}
+    \end{align*}
+  }
+
+\item Defina a sequência $a_1, a_2, \ldots$ de números inteiros
+  recursivamente como a seguir:
+  \begin{enumerate}
+  \item $a_1=6$
+  \item $a_2=3$
+  \item $a_n = 4 a_{n-1} + 5 a_{n-2}, \forall n>2$.
+  \end{enumerate}
+  
+  Prove que $3 \mid a_n, \forall n\geq 1$.
+  
+  Observação: Dizemos que $n \mid m$ (lê-se: $n$ divide $m$) se existe um inteiro $k$ tal
+  que $m = n.k$.\\
+  \answer{0}{\\ 
+    {\bf Solução} \\  Note que a propriedade
+    vale para $a_1$ e $a_2$. 
+    Assumindo a propriedade para todo
+    $a_k$ com $k<n$, para $n>1$:
+    \begin{align*}
+      \begin{split}
+        a_n &= 4 a_{n-1} + 5 a_{n-2}\\
+        &\stackrel{h.i.}{=} 4(3 k_1) + 5(3 k_2)\\
+        &=3(4 k_1) + 3(5 k_2)\\
+        &=3 (4 k_1 + 5 k_2) 
+      \end{split}
+    \end{align*}	
+  }
+  
+\item Considere a estrutura de listas de números naturais
+  dada por:
+  
+  $$l ::= nil \mid cons(n,l)$$
+  
+  onde $nil$ representa a lista vazia, e $cons(n,l)$ denota
+  a lista com cabeça $n$ e cauda $l$.
+  
+  O comprimento de uma lista é definido recursivamente por:
+  
+  $$length(l) =
+  \left\{
+    \begin{array}{ll}
+      0, & \mbox{ se } l = nil \\
+      1 + length(l'), & \mbox{ se } l = cons(a,l')
+    \end{array}\right.$$
+  
+  A concatenação de listas também pode ser definida por uma função recursiva:     
+  $$concat(l_1,l_2) =
+  \left\{
+    \begin{array}{ll}
+      l_2, & \mbox{ se } l_1 = nil \\
+      cons(a, concat(l',l_2)), & \mbox{ se } l_1 = cons(a,l')
+    \end{array}\right.$$
+  
+  O reverso de listas é definido por:
+  $$rev(l) =
+  \left\{
+    \begin{array}{ll}
+      l, & \mbox{ se } l = nil \\
+      concat(rev(l'), cons( a, nil)), & \mbox{ se } l = cons(a,l')
+    \end{array}\right.$$
+  
+\item Prove que $length(concat(l_1,l_2)) = length(l_1) + length(l_2)$, para $l_1,l_2$ quaisquer.
+  
+  \answer{0}{ 
+    {\bf Solução} \\
+    Indução sobre $l_1$\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        length(concat(nil,l_2)) &= length(l_2)\\
+        &= length(nil) + length(l_2)
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de indução é:
+    $$ length(concat(l_1,l_2)) = length(l_1) + length(l_2)$$
+    E queremos provar que:
+    $$ length(concat(cons(a,l_1),l_2)) = length(cons(a,l_1)) + length(l_2)$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        length(concat(cons(a,l_1),l_2)) &= length(cons(a,concat(l_1,l_2)))\\
+        &= 1 + length(concat(l_1,l_2))\\
+        &\stackrel{h.i.}{=} 1 + length(l_1) + length(l_2)\\
+        &=length(cons(a,l_1)) + length(l_2)	
+      \end{split}
+    \end{align*}
+  }
+  
+\item Prove que $concat(l,nil) = l$ para qualquer lista $l$\\
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Indução sobre $l$\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        concat(nil,nil) = nil
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de induçao é:
+    $$ concat(l,nil) = l$$
+    E queremos provar que:
+    $$ concat(cons(a,l),nil) = cons(a,l)$$
+    Logo,
+    \begin{align*}
+      \begin{split}
+        concat(cons(a,l),nil) &= cons(a,concat(l,nil))\\
+        &\stackrel{h.i.}{=}cons(a,l) 
+      \end{split}
+    \end{align*}
+    
+  }
+  
+\item Prove que $concat(concat(l_1,l_2),l_3) = concat(l_1,concat(l_2,l_3))$ para listas $l_1,l_2,l_3$ quaisquer\\
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Indução sobre $l_1$\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        concat(concat(nil,l_2),l_3) &= concat(l_2,l_3)\\
+        &= concat(nil,concat(l_2,l_3))
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de indução é:
+    $$ concat(concat(l_1,l_2),l_3) = concat(l_1,concat(l_2,l_3))$$
+    E queremos provar que:
+    $$ concat(concat(cons(a,l_1),l_2),l_3) = concat(cons(a,l_1),concat(l_2,l_3))$$
+    Logo,
+    \begin{align*}
+      \begin{split}
+        concat(concat(cons(a,l_1),l_2),l_3) &= concat(cons(a,concat(l_1,l_2)),l_3)\\
+        &= cons(a,concat(concat(l_1,l_2),l_3))\\
+        &\stackrel{h.i.}{=}cons(a,concat(l_1,concat(l_2,l_3)))\\
+        &=concat(cons(a,l_1),concat(l_2,l_3))
+      \end{split}
+    \end{align*}
+    
+  }
+  
+\item Prove que $length(rev(l)) = length(l)$, para qualquer lista l.\\
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Indução sobre $l$.\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        length(rev(nil)) &= length(nil) = 0\\
+        % length(nil)  &=  length(nil)\\
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de indução é: 
+    $$length(rev(l)) = length(l)$$
+    e queremos provar que
+    $$length(rev(cons(a,l))) = length(cons(a,l))$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        length(rev(cons(a,l))) &= length(concat(rev(l),cons(a,nil)))\\
+        &= length(rev(l)) + length(cons(a,nil))\\
+        &\stackrel{h.i.}{=} length(l) + length(cons(a,nil))\\
+        &= length(l) + 1\\
+        &= length(cons(a,l))
+      \end{split}
+    \end{align*}
+    
+  }
+  
+\item Prove que $rev(concat(l_1,l_2)) = concat(rev(l_2), rev(l_1))$ para
+  listas $l_1, l_2$ quaisquer.\\
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Indução sobre $l_1$\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        rev(concat(nil,l_2)) &= rev(l_2)\\
+        &= concat(rev(l_2),nil)\\
+        &= concat(rev(l_2),rev(nil))\\
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de indução é:
+    $$ rev(concat(l_1,l_2)) = concat(rev(l_2),rev(l_1))$$
+    E queremos provar que:
+    $$ rev(concat(cons(a,l_1),l_2)) = concat(rev(l_2),rev(cons(a,l_1)))$$
+    Logo,
+    \begin{align*}
+      \begin{split}
+        rev(concat(cons(a,l_1),l_2)) &= rev(cons(a,concat(l_1,l_2)))\\
+        &= concat(rev(concat(l_1,l_2)),cons(a,nil))\\
+        &\stackrel{h.i.}{=}concat(concat(rev(l_2),rev(l_1)),cons(a,nil))\\
+        &=concat(rev(l_2),concat(rev(l_1),cons(a,nil)))\\
+        % &=concat(rev(l_2),concat(rev(l_1,rev(cons(a,nil)))))\\
+        % &\stackrel{h.i.}{=}concat(rev(l_2),rev(concat(cons(a,nil),l_1)))\\
+        % &=concat(rev(l_2),rev(a:concat(nil,l_1))\\
+        &=concat(rev(l_2),rev(cons(a,l_1)))
+      \end{split}
+    \end{align*}
+  }
+  
+\item Prove que $rev(rev(l)) = l$ para qualquer lista l.\\
+  \answer{0}{\\ 
+    {\bf Solução} \\
+    Indução sobre $l$\\
+    Base indutiva:
+    \begin{align*}
+      \begin{split}
+        rev(rev(nil)) &= rev(nil)\\
+        &= nil
+      \end{split}
+    \end{align*}
+    Passo indutivo: Nossa hipótese de indução é:
+    $$ rev(rev(l)) = l$$
+    E queremos provar que:
+    $$ rev(rev(cons(a,l))) = cons(a,l)$$
+    
+    Logo,
+    \begin{align*}
+      \begin{split}
+        rev(rev(cons(a,l))) &= rev(concat(rev(l),cons(a,nil)))\\
+        &= concat(rev(cons(a,nil)),rev(rev(l)))\\
+        &= concat(cons(a,nil),rev(rev(l)))\\
+        &\stackrel{h.i.}{=} concat(cons(a,nil),l)\\
+        &= cons(a,concat(nil,l))\\
+        &= cons(a,l)
+      \end{split}
+    \end{align*}
+  }
+  
+\item {\bf Desafio}: Mostre que os princípios da boa ordenação, da indução
+  matemática e o da indução forte são equivalentes:
+  
+  \begin{itemize}
+  \item {\bf Princípio da Boa Ordenação (BO)}
+    
+    Todo subconjunto não-vazio do conjunto dos números naturais
+    possui menor elemento.
+    
+  \item {\bf Princípio da Indução Matemática (IM)}
+    
+    Sejam P uma propriedade sobre os números naturais $\mathbb{N}$, e
+    $a\in \mathbb{N}$.
+
+    {\bf Se}
+    \begin{enumerate}
+    \item[(BI)] $P(a)$, isto é, o natural $a$ satisfaz a propriedade $P$, {\bf e}
+    \item[(PI)] $\forall n\geq a, (P(n) \to P(n+1))$
+    \end{enumerate}
+    {\bf então} $\forall k\geq a, P(k)$.
+    
+  \item {\bf Princípio da Indução Forte (ou Completa) (IF)}
+
+    Sejam P uma propriedade sobre os números naturais $\mathbb{N}$, e
+    $a\in \mathbb{N}$.
+    
+    {\bf Se}
+    \begin{enumerate}
+    \item[(BI')] $P(a)$, isto é, o natural $a$ satisfaz a propriedade $P$, {\bf e}
+    \item[(PI')] $\forall n, (\forall m, a\leq m < n, (P(m) \to P(n))$
+    \end{enumerate}
+    {\bf então} $\forall k\geq a, P(k)$.    
+  \end{itemize}
+  \answer{0}{
+
+    \noindent {\bf Solução.} \\
+    A equivalência será estabelecida da seguinte forma:
+    $$\xymatrix{
+      ({\bf BO}) \ar@{=>}[rr] & & ({\bf IF}) \ar@{=>}[dl] \\
+      & ({\bf IM}) \ar@{=>}[ul]&
+    }$$
+    \begin{enumerate}
+    \item ({\bf BO}) $\Longrightarrow$ ({\bf IF}): Faremos uma prova
+      por contradição. Suponha que a conclusão de ({\bf IF}) não seja
+      verdadeira, ou seja, $P(k)$ não é verdadeira para todo natural
+      $k \geq a$. Seja $S$ o conjunto contendo os natural maiores o
+      iguais a $a$ que não satisfazem a propriedade $P$, isto é,
+      $S = \{ r\in \mathbb{N} \mid \neg P(r)\}$. Por hipótese, o
+      conjunto $S \subseteq \mathbb{N}$ é não vazio, e pelo princípio
+      da boa ordenação $S$ possui um menor elemento. Seja $r_0$ o
+      menor elemento de $S$. Pela base de indução (BI'), concluímos
+      que $r_0 \neq a$, e portanto $r_0 > a$. Logo, existe $k\geq 1$
+      tal que $r_0 = a + k$. Pela minimalidade de $r_0$, temos que
+      $P(a), P(a+1), \ldots, P(a+k-1)$ são verdadeiros. Aplicando
+      (PI') concluímos que $P(a+k)$ é verdadeiro, ou seja, que
+      $P(r_0)$, o que nos dá ua contradição. Logo, a nossa suposição
+      de que $P(k)$ não é verdadeira para todo $k\geq a$ nos levou a
+      um absurdo, e portanto concluímos que $P(k)$ é verdadeira para
+      todo $k\geq a$, como queríamos.
+    \item ({\bf IF}) $\Longrightarrow$ ({\bf IM}): Precisamos mostrar
+      que (BI') e (PI') valem, assumindo que (BI) e (PI) valem. A
+      validade de (BI') é obtida diretamente de (BI). Seja $n > a$ um
+      natural arbitrário, temos que $a \leq n-1 < n$. Assumindo
+      $P(m-1)$ concluímos $P(m)$ por (PI), e portanto (PI')
+      vale. Logo, $\forall k \geq a, P(k)$, ou seja, vale o princípio
+      da indução matemática.
+    \item ({\bf IM}) $\Longrightarrow$ ({\bf BO}): Seja $S$ um
+      subconjunto não vazio de $\mathbb{N}$. Queremos mostrar que $S$
+      possui um menor elemento utilizando (IM). Faremos indução no
+      tamanho $n$ do conjunto $S$. Se $n=1$, ou seja, se $S$ possui
+      apenas um elemento então estamos prontos. Se $n>1$, ou seja, se
+      $S$ possui mais de um elemento então podemos escrever
+      $S = \{a\} \cup S'$, onde $a$ é um elemento arbitrário de $S$, e
+      $S'$ é um conjunto não vazio que contém $n-1$ elementos. Por
+      hipótese de indução temos que $S'$ possui menor elemento,
+      digamos $b$. Note que o menor dos elementos $a, b$ é o menor
+      elemento de $S$, e portanto $S$ possui menor elemento.
+    \end{enumerate}
+  }  
+
+\item {\color{red} Incluir exercícios sobre árvores cujas soluções exijam o uso de indução} 
+\item {\color{red} Incluir exercícios que envolvam provas diretas,
+    provas por contradição e contrapositiva}
+
+\end{enumerate}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+\grid
+\grid
