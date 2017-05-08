@@ -1,0 +1,117 @@
+% Created 2017-03-24 Sex 10:25
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{textcomp}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{amssymb,amsmath}
+\usepackage[portuguese]{babel}
+\usepackage{fullpage}
+\usepackage{mathpartir}
+\usepackage{proof}
+\usepackage[all]{xy}
+
+\newcommand{\toe}{(\to_e)}
+\newcommand{\toi}{(\to_i)}
+\newcommand{\landi}{(\land_i)}
+\newcommand{\lande}{(\land_e)}
+\newcommand{\landel}{(\land_{e_1})}
+\newcommand{\lander}{(\land_{e_2})}
+\newcommand{\lori}{(\lor_i)}
+\newcommand{\lorl}{(\lor_{i_1})}
+\newcommand{\lorr}{(\lor_{i_2})}
+\newcommand{\lore}[2]{(\lor_e)\;{#1,#2}}
+\newcommand{\nege}{(\neg_e)}
+\newcommand{\negi}{(\neg_i)}
+\newcommand{\lem}{\rm{(LEM)}}
+\newcommand{\pbc}{(\rm{PBC})}
+\newcommand{\bote}{(\bot_e)}
+\newcommand{\alle}{(\forall_e)}
+\newcommand{\alli}{(\forall_i)}
+\newcommand{\exie}[1]{(\exists_e)\;{#1}}
+\newcommand{\exii}{(\exists_i)}
+\newcommand{\true}{T}
+\newcommand{\false}{F}
+\newcommand{\fv}[1]{{\sc FV}(#1)}
+\renewcommand\refname{Bibliografia}
+
+\newcommand{\CP}[1]{{\mathcal{P}}(#1)}
+
+
+\usepackage{fancyhdr} %For headers and footers
+\usepackage{fancyhdr} %For headers and footers
+\usepackage{color}
+\usepackage{enumitem}
+
+\newcommand{\lista}[1]{
+\noindent
+\fbox{
+\begin{minipage}{6.3in}
+  Universidade de Brasília - Instituto de Ciências Exatas \\ Departamento de Ciência da Computação \\
+  {\bf CIC 113450 - Fundamentos Teóricos da Computação - Turma C \hfill
+    (2017/1)}\\[.1cm]
+  {\bf Professor:} Flávio L. C. de Moura \\[.1cm]
+  {\bf Monitor:} Kevin Masinda Mahema ({\tt kevinmasinda16@gmail.com})
+  \begin{center}
+    \today \\[0.5cm]
+    {\Large Lista: #1} \\[3mm]
+  \end{center}
+\end{minipage}
+}
+
+\bigskip
+
+\bigskip
+}
+
+
+% Switch answer to = 0 in order to generate the solution
+\newcommand{\answer}[2]{\ifnum#1= 0  {\color{blue} #2}\else \fi}
+
+
+\author{Prof. Flávio L. C. de Moura\thanks{flaviomoura@unb.br}}
+\date{}
+\title{113450 - Fundamentos Teóricos da Computação - Turma C}
+\hypersetup{
+ pdfauthor={Flávio L. C. de Moura},
+ pdftitle={113450 - Fundamentos Teóricos da Computação (Turma C)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.50.1 (Org mode 9.0.5)}, 
+ pdflang={English}}
+
+\begin{document}
+\lista{Lista de Exercícios - Fundamentos de teoria dos conjuntos, relações e funções \newline \answer{0}{(Gabarito)}}
+
+\begin{enumerate}
+\item Sejam $A$ e $B$ conjuntos. Prove que $A \subseteq B$ se, e somente se $\overline{B} \subseteq \overline{A}$.
+
+  \answer{0}{
+    Escrever aqui a resposta
+    }
+  
+\item Sejam $A$ e $B$ conjuntos, e $f$ uma função do conjunto $A$ no conjunto $B$. A inversa da função $f$ é uma função que associa a cada elemento $b\in B$, um elemento $a\in A$, tal que $f(a)=b$. Uma função é dita inversível quando admite uma função inversa. Mostre que a função $f(x) = |x|$ do conjunto dos números reais no conjunto dos números reais não negativos não é inversível.  
+\item Sejam $A$ e $B$ conjuntos quaisquer. Prove que $A \cup (A \cap B) = A$.
+\item $A \not\subset B$
+\item  \[A \times B \]
+\item $\CP{A} \cup \CP{B}$
+\item $\emptyset$
+\item $A \backslash B$ 
+\item $\neq$
+
+\end{enumerate}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+\grid
+\grid
